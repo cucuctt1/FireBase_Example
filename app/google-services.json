@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "679196191734",
+    "project_id": "waterindafirewhy",
+    "storage_bucket": "waterindafirewhy.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:679196191734:android:38ee3251f755b1062935d7",
+        "android_client_info": {
+          "package_name": "com.nhom2.waterindafirewhy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAP0nys9S9Ad8w3u6Mcv6rtGQE35_1OwsM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:679196191734:android:81de947aec921a9f2935d7",
+        "android_client_info": {
+          "package_name": "vn.edu.ueh.thanhdnh.firebase_example"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAP0nys9S9Ad8w3u6Mcv6rtGQE35_1OwsM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

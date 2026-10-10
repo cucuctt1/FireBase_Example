@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -7,94 +8,118 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guidelineStart"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      app:layout_constraintGuide_begin="24dp" />
+
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guidelineEnd"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      app:layout_constraintGuide_end="24dp" />
+
+  <androidx.constraintlayout.widget.Barrier
+      android:id="@+id/labelBarrier"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:barrierDirection="end"
+      app:constraint_referenced_ids="tvTitleLabel,tvContentLabel,tvImageUrlLabel" />
+
+  <!-- Title row -->
   <TextView
-    android:id="@+id/tvTitleLabel"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="32dp"
-    android:layout_marginTop="100dp"
-    android:text="Title"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+      android:id="@+id/tvTitleLabel"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:labelFor="@id/etTitle"
+      android:text="Title"
+      app:layout_constraintBaseline_toBaselineOf="@id/etTitle"
+      app:layout_constraintStart_toStartOf="@id/guidelineStart" />
 
   <EditText
-    android:id="@+id/etTitle"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="24dp"
-    android:layout_marginEnd="32dp"
-    android:ems="10"
-    android:hint="Enter title"
-    android:inputType="text"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toEndOf="@+id/tvTitleLabel"
-    app:layout_constraintTop_toTopOf="@+id/tvTitleLabel" />
+      android:id="@+id/etTitle"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="24dp"
+      android:hint="Enter title"
+      android:inputType="text"
+      android:maxLines="1"
+      app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+      app:layout_constraintStart_toEndOf="@id/labelBarrier"
+      app:layout_constraintTop_toTopOf="parent" />
 
+  <!-- Content row -->
   <TextView
-    android:id="@+id/tvContentLabel"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="32dp"
-    android:layout_marginTop="32dp"
-    android:text="Content"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/etTitle" />
+      android:id="@+id/tvContentLabel"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:labelFor="@id/etContent"
+      android:text="Content"
+      app:layout_constraintBaseline_toBaselineOf="@id/etContent"
+      app:layout_constraintStart_toStartOf="@id/guidelineStart" />
 
   <EditText
-    android:id="@+id/etContent"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="16dp"
-    android:layout_marginEnd="32dp"
-    android:ems="10"
-    android:hint="Enter content"
-    android:inputType="textMultiLine"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toEndOf="@+id/tvContentLabel"
-    app:layout_constraintTop_toTopOf="@+id/tvContentLabel" />
+      android:id="@+id/etContent"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="24dp"
+      android:gravity="top|start"
+      android:hint="Enter content"
+      android:inputType="textMultiLine"
+      android:minLines="3"
+      android:maxLines="5"
+      app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+      app:layout_constraintStart_toEndOf="@id/labelBarrier"
+      app:layout_constraintTop_toBottomOf="@id/etTitle" />
 
+  <!-- Image URL row -->
   <TextView
-    android:id="@+id/tvImageUrlLabel"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="32dp"
-    android:layout_marginTop="32dp"
-    android:text="Image URL"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/etContent" />
+      android:id="@+id/tvImageUrlLabel"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:labelFor="@id/etImageUrl"
+      android:text="Image URL"
+      app:layout_constraintBaseline_toBaselineOf="@id/etImageUrl"
+      app:layout_constraintStart_toStartOf="@id/guidelineStart" />
 
   <EditText
-    android:id="@+id/etImageUrl"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="32dp"
-    android:ems="10"
-    android:hint="Enter image url"
-    android:inputType="textUri"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toEndOf="@+id/tvImageUrlLabel"
-    app:layout_constraintTop_toTopOf="@+id/tvImageUrlLabel" />
+      android:id="@+id/etImageUrl"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="24dp"
+      android:hint="Enter image URL"
+      android:inputType="textUri"
+      android:maxLines="1"
+      app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+      app:layout_constraintStart_toEndOf="@id/labelBarrier"
+      app:layout_constraintTop_toBottomOf="@id/etContent" />
+
+  <!-- Buttons row -->
+  <Button
+      android:id="@+id/btAdd"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="32dp"
+      android:text="Add"
+      app:layout_constraintEnd_toStartOf="@id/btShow"
+      app:layout_constraintHorizontal_chainStyle="packed"
+      app:layout_constraintStart_toStartOf="@id/guidelineStart"
+      app:layout_constraintTop_toBottomOf="@id/etImageUrl" />
 
   <Button
-    android:id="@+id/btAdd"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="48dp"
-    android:text="Add"
-    app:layout_constraintEnd_toStartOf="@+id/btShow"
-    app:layout_constraintHorizontal_chainStyle="packed"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/etImageUrl" />
-
-  <Button
-    android:id="@+id/btShow"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="24dp"
-    android:text="Show DB"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toEndOf="@+id/btAdd"
-    app:layout_constraintTop_toTopOf="@+id/btAdd" />
+      android:id="@+id/btShow"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="24dp"
+      android:text="Show DB"
+      app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+      app:layout_constraintStart_toEndOf="@id/btAdd"
+      app:layout_constraintTop_toTopOf="@id/btAdd" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
